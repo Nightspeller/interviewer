@@ -12,37 +12,37 @@ import SelectionAndSubmission from './selection-and-submission/selection-and-sub
 function From() {
     return (
         <form className="form">
-            <div className="sgrid">
-                <div className="scol-full scontent-center scontent-vertical">
+            <div className="s-grid">
+                <div className="s-col-full s-content-center s-content-vertical">
                     TECHNICAL EVALUATION FORM
                     <InterviewGuidelines/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <GeneralInfo/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <QuestionsAndAnswers/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <TechnicalEvaluation/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <OverallEvaluation/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <Grades/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <Commitments/>
                 </div>
 
-                <div className="scol-full">
+                <div className="s-col-full">
                     <SelectionAndSubmission/>
                 </div>
             </div>

@@ -7,11 +7,6 @@ form.form  {
   margin: auto;
 }
 
-.form fieldset {
-  width: 100%;
-  text-align: center;
-}
-
 .form input, .form textarea, .form label {
   width: 100%;
 }
@@ -20,9 +15,6 @@ form.form  {
   height: 100%;
 }
 
-.form .text-center {
-  text-align: center;
-}
 .form div {
   /*border: 1px solid black;*/
 }

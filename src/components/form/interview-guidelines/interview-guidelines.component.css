@@ -4,6 +4,12 @@
 
 .interview-guidelines label {
   width: 1.5rem;
+  color: #d0d0d0;
+  cursor: pointer;
+}
+
+.interview-guidelines label.modal-link {
+  text-decoration: underline;
 }
 
 .interview-guidelines .modal .card {

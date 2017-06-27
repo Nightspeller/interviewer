@@ -3,9 +3,9 @@ import './general-info.component.css';
 
 function GeneralInfo() {
     return (
-        <div className="sgrid general-info">
-            <div className="scol-12 scol-sm-6">
-                <fieldset>
+        <div className="s-grid general-info">
+            <div className="s-col-12 s-col-sm-6">
+                <fieldset className="text-center">
                     <legend>Interviewer's info</legend>
                     <div className="row responsive-label">
                         <div className="col-sm-12 col-md-3">
@@ -33,8 +33,8 @@ function GeneralInfo() {
                     </div>
                 </fieldset>
             </div>
-            <div className="scol-12 scol-sm-6">
-                <fieldset>
+            <div className="s-col-12 s-col-sm-6">
+                <fieldset className="text-center">
                     <legend>General info</legend>
                     <div className="row responsive-label">
                         <div className="col-sm-12 col-md-3">

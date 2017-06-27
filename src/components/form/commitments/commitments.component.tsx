@@ -3,12 +3,12 @@ import './commitments.component.css';
 
 function Commitments() {
     return (
-        <div className="sgrid commitments">
-            <div className="scol-full scontent-center">
+        <div className="s-grid commitments">
+            <div className="s-col-full s-content-center">
                 Please record if any commitments have been made to the candidate
             </div>
-            <div className="scol-6">
-                <fieldset>
+            <div className="s-col-6">
+                <fieldset className="text-center">
                     <legend>Work conditions</legend>
                     <div className="row responsive-label">
                         <div className="col-sm-12 col-md-3">
@@ -36,8 +36,8 @@ function Commitments() {
                     </div>
                 </fieldset>
             </div>
-            <div className="scol-6">
-                <fieldset>
+            <div className="s-col-6">
+                <fieldset className="text-center">
                     <legend>Position</legend>
                     <div className="row responsive-label">
                         <div className="col-sm-12 col-md-3">

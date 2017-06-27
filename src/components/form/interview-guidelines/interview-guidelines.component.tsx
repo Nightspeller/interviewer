@@ -4,7 +4,7 @@ import './interview-guidelines.component.css';
 function InterviewGuidelines() {
     return (
         <div className="interview-guidelines">
-            <label htmlFor="modal-toggle">INTERVIEW GUIDELINES</label>
+            <label htmlFor="modal-toggle" className="modal-link">Interview Guidelines</label>
             <input id="modal-toggle" type="checkbox"/>
             <div className="modal">
                 <div className="card">
