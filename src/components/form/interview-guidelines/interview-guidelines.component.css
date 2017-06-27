@@ -1,0 +1,12 @@
+.interview-guidelines {
+
+}
+
+.interview-guidelines label {
+  width: 1.5rem;
+}
+
+.interview-guidelines .modal .card {
+  max-width: 800px;
+  background: #1c2529;
+}

@@ -1,28 +1,28 @@
-form {
+.form {
+
+}
+
+form.form  {
   max-width: 1200px;
   margin: auto;
 }
 
-fieldset {
+.form fieldset {
   width: 100%;
   text-align: center;
 }
 
-input, textarea, label {
+.form input, .form textarea, .form label {
   width: 100%;
 }
-textarea {
+
+.form textarea {
   height: 100%;
 }
 
-.modal .card {
-  max-width: 800px;
-  background: #1c2529;
-}
-
-.text-center {
+.form .text-center {
   text-align: center;
 }
-div {
+.form div {
   /*border: 1px solid black;*/
 }
