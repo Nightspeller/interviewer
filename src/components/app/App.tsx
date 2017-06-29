@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import From from '../form/form.component';
+import From from '../../containers/form.container';
 
 class App extends React.Component<{}, {}> {
   render() {

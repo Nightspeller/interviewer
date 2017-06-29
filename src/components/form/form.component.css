@@ -7,7 +7,7 @@ form.form  {
   margin: auto;
 }
 
-.form input, .form textarea, .form label {
+.form input, .form textarea, .form label, .form select {
   width: 100%;
 }
 

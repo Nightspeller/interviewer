@@ -1,7 +1,12 @@
 import * as React from 'react';
 import './overall-evaluation.component.css';
 
-function OverallEvaluation() {
+function OverallEvaluation({info, callback}: any) {
+    let updateProperty = (key: string, value: string) => {
+        let tempObj = {};
+        tempObj[key] = value;
+        callback(Object.assign({}, info, tempObj));
+    };
     return (
         <div className="s-grid overall-evaluation">
             <div className="s-col-full s-content-center">
@@ -15,16 +20,35 @@ function OverallEvaluation() {
                 Lack of technical skills, areas of weakness and/or reasons for not shortlisting the candidate:
             </div>
             <div className="s-col-7 s-content-center">
-                <textarea />
+                <textarea
+                    onChange={
+                        (event: any) => {
+                            updateProperty('detailedWriteUp', event.nativeEvent.target.value)
+                        }
+                    }
+                />
             </div>
             <div className="s-col-5 s-content-center-vertical">
                 Areas of improvement / Concerns:
             </div>
             <div className="s-col-7 s-content-center">
-                <textarea />
+                <textarea
+                    onChange={
+                        (event: any) => {
+                            updateProperty('areasOfImprovement', event.nativeEvent.target.value)
+                        }
+                    }
+                />
             </div>
             <div className="s-col-full s-content-center">
-                <textarea placeholder="Please record any other role-related feedback on the candidate here"/>
+                <textarea
+                    placeholder="Please record any other role-related feedback on the candidate here"
+                    onChange={
+                        (event: any) => {
+                            updateProperty('otherFeedback', event.nativeEvent.target.value)
+                        }
+                    }
+                />
             </div>
         </div>
     );
