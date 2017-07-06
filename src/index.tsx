@@ -18,7 +18,7 @@ const store = createStore<IStoreState>(
                 interviewerMid: '',
                 candidateName: '',
                 interviewMode: '',
-                InterviewDate: new Date()
+                interviewDate: new Date()
             },
             questionsAndAnswers: [{
                     question: '',

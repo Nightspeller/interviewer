@@ -9,122 +9,99 @@ function GeneralInfo({info, callback}: any) {
     };
     return (
         <div className="s-grid general-info">
-            <div className="s-col-12 s-col-sm-6">
-                <fieldset className="text-center">
-                    <legend>Interviewer's info</legend>
-                    <div className="row responsive-label">
-                        <div className="col-sm-12 col-md-3">
-                            <label htmlFor="number">Interviewer’s Name</label>
-                        </div>
-                        <div className="col-sm-12 col-md">
-                            <input
-                                type="text"
-                                onChange={
-                                    (event: any) => {
-                                        updateProperty('interviewerName', event.nativeEvent.target.value)
-                                    }
-                                }
-                                value={info.interviewerName}
-                            />
-                        </div>
-                    </div>
-                    <div className="row responsive-label">
-                        <div className="col-sm-12 col-md-3">
-                            <label htmlFor="disabled">Interviewer’s Competency</label>
-                        </div>
-                        <div className="col-sm-12 col-md">
-                            <select
-                                onChange={
-                                    (event: any) => {
-                                        updateProperty('interviewerCompetency', event.nativeEvent.target.value)
-                                    }
-                                }
-                            >
-                                <optgroup>
-                                    <option>NA</option>
-                                    <option>C1</option>
-                                    <option>C2</option>
-                                    <option>C3</option>
-                                    <option>C4</option>
-                                    <option>C5</option>
-                                    <option>C6</option>
-                                    <option>C7</option>
-                                    <option>C8</option>
-                                    <option>C9</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="row responsive-label">
-                        <div className="col-sm-12 col-md-3">
-                            <label htmlFor="readonly">Interviewer’s MID</label>
-                        </div>
-                        <div className="col-sm-12 col-md">
-                            <input
-                                type="text"
-                                onChange={
-                                    (event: any) => {
-                                        updateProperty('interviewerMid', event.nativeEvent.target.value)
-                                    }
-                                }
-                            />
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <div className="s-col-12 s-col-sm-6">
-                <fieldset className="text-center">
-                    <legend>General info</legend>
-                    <div className="row responsive-label">
-                        <div className="col-sm-12 col-md-3">
-                            <label htmlFor="number">Candidate’s Name</label>
-                        </div>
-                        <div className="col-sm-12 col-md">
-                            <input
-                                type="text"
-                                onChange={(event: any) => {
-                                    updateProperty('candidateName', event.nativeEvent.target.value)
-                                }
-                                }
-                            />
-                        </div>
-                    </div>
-                    <div className="row responsive-label">
-                        <div className="col-sm-12 col-md-3">
-                            <label htmlFor="disabled">Interview Mode</label>
-                        </div>
-                        <div className="col-sm-12 col-md">
-                            <select
-                                onChange={
-                                    (event: any) => {
-                                        updateProperty('interviewMode', event.nativeEvent.target.value)
-                                    }
-                                }
-                            >
-                                <optgroup>
-                                    <option>NA</option>
-                                    <option>Remote</option>
-                                    <option>In person</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="row responsive-label">
-                        <div className="col-sm-12 col-md-3">
-                            <label htmlFor="readonly">Interview date</label>
-                        </div>
-                        <div className="col-sm-12 col-md">
-                            <input
-                                type="date"
-                                onChange={(event: any) => {
-                                    updateProperty('InterviewDate', event.nativeEvent.target.value)
-                                }
-                                }
-                            />
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            <fieldset className="s-col-12 s-col-sm-6">
+                <legend>Interviewer's info</legend>
+                <div className="s-grid">
+                    <label className="s-col-12 s-col-md-3 s-content-center">Interviewer’s Name</label>
+                    <input
+                        className="s-col-12 s-col-md-9"
+                        type="text"
+                        onChange={
+                            (event: any) => {
+                                updateProperty('interviewerName', event.nativeEvent.target.value)
+                            }
+                        }
+                        value={info.interviewerName}
+                    />
+                    <label className="s-col-12 s-col-md-3 s-content-center">Interviewer’s Competency</label>
+                    <select
+                        className="s-col-12 s-col-md-9"
+                        onChange={
+                            (event: any) => {
+                                updateProperty('interviewerCompetency', event.nativeEvent.target.value)
+                            }
+                        }
+                        value={info.interviewerCompetency}
+                    >
+                        <optgroup>
+                            <option>NA</option>
+                            <option>C1</option>
+                            <option>C2</option>
+                            <option>C3</option>
+                            <option>C4</option>
+                            <option>C5</option>
+                            <option>C6</option>
+                            <option>C7</option>
+                            <option>C8</option>
+                            <option>C9</option>
+                        </optgroup>
+                    </select>
+                    <label className="s-col-12 s-col-md-3 s-content-center">Interviewer’s MID</label>
+                    <input
+                        className="s-col-12 s-col-md-9"
+                        type="text"
+                        onChange={
+                            (event: any) => {
+                                updateProperty('interviewerMid', event.nativeEvent.target.value)
+                            }
+                        }
+                        value={info.interviewerMid}
+                    />
+                </div>
+            </fieldset>
+            <fieldset className="s-col-12 s-col-sm-6">
+                <legend>General info</legend>
+                <div className="s-grid">
+                    <label className="s-col-12 s-col-md-3 s-content-center">Candidate’s Name</label>
+                    <input
+                        className="s-col-12 s-col-md-9"
+                        type="text"
+                        onChange={
+                            (event: any) => {
+                                updateProperty('candidateName', event.nativeEvent.target.value)
+                            }
+                        }
+                        value={info.candidateName}
+                    />
+                    <label className="s-col-12 s-col-md-3 s-content-center">Interview Mode</label>
+                    <select
+                        className="s-col-12 s-col-md-9"
+                        onChange={
+                            (event: any) => {
+                                updateProperty('interviewMode', event.nativeEvent.target.value)
+                            }
+                        }
+                        value={info.interviewMode}
+                    >
+                        <optgroup>
+                            <option>NA</option>
+                            <option>Remote</option>
+                            <option>In person</option>
+                        </optgroup>
+                    </select>
+                    <label className="s-col-12 s-col-md-3 s-content-center">Interview date</label>
+                    <input
+                        className="s-col-12 s-col-md-9"
+                        type="date"
+                        onChange={
+                            (event: any) => {
+                                updateProperty('interviewDate', event.nativeEvent.target.value)
+                            }
+                        }
+                        value={info.interviewDate}
+                    />
+                </div>
+            </fieldset>
         </div>
     );
 }

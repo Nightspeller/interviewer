@@ -38,6 +38,7 @@ function QuestionsAndAnswers({info, callback}: any) {
                                     updateProperty(index, `question`, event.nativeEvent.target.value)
                                 }
                             }
+                            value={elem.question}
                         />
                     </div>,
                     <div className="s-col-6 s-content-center">
@@ -48,6 +49,7 @@ function QuestionsAndAnswers({info, callback}: any) {
                                     updateProperty(index, `answer`, event.nativeEvent.target.value)
                                 }
                             }
+                            value={elem.answer}
                         />
                     </div>
                 ]

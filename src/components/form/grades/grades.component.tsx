@@ -21,6 +21,7 @@ function Grades({info, callback}: any) {
                             id={`communicationSkills${index}`}
                             name="communicationSkills"
                             onClick={() => updateProperty('communicationSkills', elem)}
+                            checked={info.communicationSkills === elem}
                         />
                         <label htmlFor={`communicationSkills${index}`}>{elem}</label>
                     </div>
@@ -40,6 +41,7 @@ function Grades({info, callback}: any) {
                             id={`overallAssessment${index}`}
                             name="overallAssessment"
                             onClick={() => updateProperty('overallAssessment', elem)}
+                            checked={info.overallAssessment === elem}
                         />
                         <label htmlFor={`overallAssessment${index}`}>{elem}</label>
                     </div>

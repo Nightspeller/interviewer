@@ -6,7 +6,7 @@ export interface IStoreState {
             interviewerMid: string;
             candidateName: string;
             interviewMode: string;
-            InterviewDate: Date;
+            interviewDate: Date;
         };
         questionsAndAnswers: IQuestionAndAnswer[];
         technicalEvaluation: ITechSkillRating[];
@@ -29,7 +29,7 @@ export interface IStoreState {
         };
         selection: {
             reasons: string;
-            selected: boolean;
+                selected: boolean;
         };
     };
 }

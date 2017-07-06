@@ -17,6 +17,7 @@ function SelectionAndSubmission({info, callback, submitForm}: any) {
                             updateProperty(`reasons`, event.nativeEvent.target.value)
                         }
                     }
+                    value={info.reasons}
                 />
             </div>
             <div className="s-col-6 s-content-center">
@@ -26,6 +27,7 @@ function SelectionAndSubmission({info, callback, submitForm}: any) {
                         id="selected"
                         name="choice"
                         onClick={() => updateProperty('selected', true)}
+                        checked={info.selected === true}
                     />
                     <label htmlFor="selected">Selected</label>
                 </div>
@@ -37,6 +39,7 @@ function SelectionAndSubmission({info, callback, submitForm}: any) {
                         id="notSelected"
                         name="choice"
                         onClick={() => updateProperty('selected', false)}
+                        checked={info.selected === false}
                     />
                     <label htmlFor="notSelected">Not Aligned</label>
                 </div>

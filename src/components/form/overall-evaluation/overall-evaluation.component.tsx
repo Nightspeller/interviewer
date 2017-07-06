@@ -26,6 +26,7 @@ function OverallEvaluation({info, callback}: any) {
                             updateProperty('detailedWriteUp', event.nativeEvent.target.value)
                         }
                     }
+                    value={info.detailedWriteUp}
                 />
             </div>
             <div className="s-col-5 s-content-center-vertical">
@@ -38,6 +39,7 @@ function OverallEvaluation({info, callback}: any) {
                             updateProperty('areasOfImprovement', event.nativeEvent.target.value)
                         }
                     }
+                    value={info.areasOfImprovement}
                 />
             </div>
             <div className="s-col-full s-content-center">
@@ -48,6 +50,7 @@ function OverallEvaluation({info, callback}: any) {
                             updateProperty('otherFeedback', event.nativeEvent.target.value)
                         }
                     }
+                    value={info.otherFeedback}
                 />
             </div>
         </div>

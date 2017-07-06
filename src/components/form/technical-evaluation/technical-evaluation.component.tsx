@@ -39,6 +39,7 @@ function TechnicalEvaliation({info, callback}: any) {
                                     updateProperty(index, `skill`, event.nativeEvent.target.value)
                                 }
                             }
+                            value={elem.skill}
                         />
                     </div>,
                     <div className="s-col-3 s-content-center">
@@ -48,6 +49,7 @@ function TechnicalEvaliation({info, callback}: any) {
                                     updateProperty(index, `rating`, event.nativeEvent.target.value)
                                 }
                             }
+                            value={elem.rating}
                         >
                             <optgroup>
                                 <option>NA</option>
