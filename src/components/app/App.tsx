@@ -1,15 +1,12 @@
 import * as React from 'react';
 import './App.css';
-import From from '../../containers/form.container';
+import HeaderAndMenu from '../../components/header-and-menu/header-and-menu.component';
 
-class App extends React.Component<{}, {}> {
-  render() {
+export default function App({ children }: any) {
     return (
         <div>
-            <From />
+            <HeaderAndMenu />
+            {children}
         </div>
-    );
-  }
+    )
 }
-
-export default App;

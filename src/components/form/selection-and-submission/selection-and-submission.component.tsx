@@ -26,7 +26,7 @@ function SelectionAndSubmission({info, callback, submitForm}: any) {
                         type="radio"
                         id="selected"
                         name="choice"
-                        onClick={() => updateProperty('selected', true)}
+                        onChange={() => updateProperty('selected', true)}
                         checked={info.selected === true}
                     />
                     <label htmlFor="selected">Selected</label>
@@ -38,7 +38,7 @@ function SelectionAndSubmission({info, callback, submitForm}: any) {
                         type="radio"
                         id="notSelected"
                         name="choice"
-                        onClick={() => updateProperty('selected', false)}
+                        onChange={() => updateProperty('selected', false)}
                         checked={info.selected === false}
                     />
                     <label htmlFor="notSelected">Not Aligned</label>

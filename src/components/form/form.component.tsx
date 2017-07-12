@@ -19,7 +19,7 @@ export interface Props {
 class From extends React.Component<Props, object>{
     componentWillMount() {
         const {prepopulateForm} = this.props;
-        prepopulateForm(JSON.parse(localStorage.getItem('form') || ''));
+        prepopulateForm(JSON.parse(localStorage.getItem('form') || '{}'));
 
     }
     render() {

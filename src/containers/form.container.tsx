@@ -1,10 +1,9 @@
 import From from '../components/form/form.component';
 import * as actions from '../actions/actions';
-import { IStoreState } from '../types/types';
 import { connect } from 'react-redux';
 
-const mapStateToProps = ({form}: IStoreState) => {
-    return {form}
+const mapStateToProps = ({formReducer}: any) => {
+    return {form: formReducer.form}
 };
 
 const mapDispatchToProps = (dispatch: any) => {
