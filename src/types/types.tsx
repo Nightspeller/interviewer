@@ -1,36 +1,46 @@
+import { RouterState } from 'react-router-redux';
+
 export interface IStoreState {
-    form: {
-        generalInfo: {
-            interviewerName: string;
-            interviewerCompetency: string;
-            interviewerMid: string;
-            candidateName: string;
-            interviewMode: string;
-            interviewDate: Date;
-        };
-        questionsAndAnswers: IQuestionAndAnswer[];
-        technicalEvaluation: ITechSkillRating[];
-        overallEvaluation: {
-            detailedWriteUp: string;
-            areasOfImprovement: string;
-            otherFeedback: string;
-        };
-        grades: {
-            communicationSkills: string;
-            overallAssessment: string;
-        };
-        commitments: {
-            location: string;
-            workTime: string;
-            projects: string;
-            role: string;
-            domain: string;
-            skill: string;
-        };
-        selection: {
-            reasons: string;
-                selected: boolean;
-        };
+    formState: IFormState;
+    formsListState: IFormsListState;
+    routing: RouterState;
+}
+
+export interface IFormState {
+    form: IForm;
+}
+
+export interface IForm {
+    generalInfo: {
+        interviewerName: string;
+        interviewerCompetency: string;
+        interviewerMid: string;
+        candidateName: string;
+        interviewMode: string;
+        interviewDate: Date;
+    };
+    questionsAndAnswers: IQuestionAndAnswer[];
+    technicalEvaluation: ITechSkillRating[];
+    overallEvaluation: {
+        detailedWriteUp: string;
+        areasOfImprovement: string;
+        otherFeedback: string;
+    };
+    grades: {
+        communicationSkills: string;
+        overallAssessment: string;
+    };
+    commitments: {
+        location: string;
+        workTime: string;
+        projects: string;
+        role: string;
+        domain: string;
+        skill: string;
+    };
+    selection: {
+        reasons: string;
+        selected: boolean;
     };
 }
 
@@ -42,4 +52,14 @@ export interface IQuestionAndAnswer {
 export interface ITechSkillRating {
     skill: string;
     rating: string;
+}
+
+export interface IDbEntry {
+    _id: string;
+    _rev: string;
+    form: IForm;
+}
+
+export interface IFormsListState {
+    forms: IDbEntry[];
 }

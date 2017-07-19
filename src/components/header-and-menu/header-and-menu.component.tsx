@@ -1,18 +1,19 @@
 import * as React from 'react';
 import './header-and-menu.component.css';
-
+import { Link } from 'react-router-dom';
 
 export default function HeaderAndMenu() {
     return (
         <div>
             <header>
                 <label htmlFor="drawer-checkbox" className="button drawer-toggle persistent"/>
+                <label htmlFor="drawer-checkbox" className="element-center button">Interviewer for Mindtree</label>
             </header>
             <input type="checkbox" id="drawer-checkbox"/>
             <nav className="drawer persistent">
                 <label htmlFor="drawer-checkbox" className="close"/>
-                <a href="/new-form">New Form</a>
-                <a href="/forms">Browse forms</a>
+                <Link to="/new-form">New Form</Link>
+                <Link to="/">Browse forms</Link>
             </nav>
         </div>
     );

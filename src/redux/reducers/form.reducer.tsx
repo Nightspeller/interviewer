@@ -1,4 +1,6 @@
-import { IStoreState } from '../types/types';
+import { Action } from 'redux-actions';
+
+import { IFormState } from '../../types/types';
 import { PREPOPULATE_FORM, SUBMIT_FORM, UPDATE_FORM_PART } from '../actions/actions';
 const initialState = {
     form: {
@@ -42,8 +44,7 @@ const initialState = {
     }
 };
 
-export function formReducer(state: IStoreState = initialState, action: any): IStoreState {
-    console.log(action);
+export function formReducer(state: IFormState = initialState, action: Action<any>): IFormState {
     switch (action.type) {
         case PREPOPULATE_FORM:
             return {...state, form: action.payload};
@@ -51,11 +52,9 @@ export function formReducer(state: IStoreState = initialState, action: any): ISt
             let updatedForm = {...state.form};
             updatedForm[action.payload.part] = action.payload.value;
             return {...state, form: updatedForm};
-        case SUBMIT_FORM:
-            localStorage.setItem('form', JSON.stringify(state.form));
+        case SUBMIT_FORM + '_SUCCEEDED':
             return state;
         default:
             return state;
     }
 }
-

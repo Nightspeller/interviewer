@@ -8,20 +8,23 @@ import OverallEvaluation from './overall-evaluation/overall-evaluation.component
 import Grades from './grades/grades.component';
 import Commitments from './commitments/commitments.component';
 import SelectionAndSubmission from './selection-and-submission/selection-and-submission.component';
+import { IForm } from '../../types/types';
 
-export interface Props {
-    form: any;
+export interface IFormComponentProps {
+    form: IForm;
     updateFormPart: any;
     submitForm: any;
     prepopulateForm: any;
 }
 
-class From extends React.Component<Props, object>{
+class From extends React.Component<IFormComponentProps , object> {
     componentWillMount() {
         const {prepopulateForm} = this.props;
-        prepopulateForm(JSON.parse(localStorage.getItem('form') || '{}'));
-
+        if (localStorage.getItem('form')) {
+            prepopulateForm(JSON.parse(localStorage.getItem('form') || '{}'));
+        }
     }
+
     render() {
         const {form, updateFormPart, submitForm} = this.props;
         return (
@@ -42,21 +45,24 @@ class From extends React.Component<Props, object>{
                     <div className="s-col-full">
                         <QuestionsAndAnswers
                             info={form.questionsAndAnswers}
-                            callback={(questionsAndAnswers: any) => updateFormPart('questionsAndAnswers', questionsAndAnswers)}
+                            callback={(questionsAndAnswers: any) =>
+                                updateFormPart('questionsAndAnswers', questionsAndAnswers)}
                         />
                     </div>
 
                     <div className="s-col-full">
                         <TechnicalEvaluation
                             info={form.technicalEvaluation}
-                            callback={(technicalEvaluation: any) => updateFormPart('technicalEvaluation', technicalEvaluation)}
+                            callback={(technicalEvaluation: any) =>
+                                updateFormPart('technicalEvaluation', technicalEvaluation)}
                         />
                     </div>
 
                     <div className="s-col-full">
                         <OverallEvaluation
                             info={form.overallEvaluation}
-                            callback={(overallEvaluation: any) => updateFormPart('overallEvaluation', overallEvaluation)}
+                            callback={(overallEvaluation: any) =>
+                                updateFormPart('overallEvaluation', overallEvaluation)}
                         />
                     </div>
 
@@ -78,7 +84,7 @@ class From extends React.Component<Props, object>{
                         <SelectionAndSubmission
                             info={form.selection}
                             callback={(selection: any) => updateFormPart('selection', selection)}
-                            submitForm={submitForm}
+                            submitForm={() => submitForm({form})}
                         />
                     </div>
                 </div>

@@ -18,7 +18,7 @@ function GeneralInfo({info, callback}: any) {
                         type="text"
                         onChange={
                             (event: any) => {
-                                updateProperty('interviewerName', event.nativeEvent.target.value)
+                                updateProperty('interviewerName', event.nativeEvent.target.value);
                             }
                         }
                         value={info.interviewerName}
@@ -28,7 +28,7 @@ function GeneralInfo({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         onChange={
                             (event: any) => {
-                                updateProperty('interviewerCompetency', event.nativeEvent.target.value)
+                                updateProperty('interviewerCompetency', event.nativeEvent.target.value);
                             }
                         }
                         value={info.interviewerCompetency}
@@ -52,7 +52,7 @@ function GeneralInfo({info, callback}: any) {
                         type="text"
                         onChange={
                             (event: any) => {
-                                updateProperty('interviewerMid', event.nativeEvent.target.value)
+                                updateProperty('interviewerMid', event.nativeEvent.target.value);
                             }
                         }
                         value={info.interviewerMid}
@@ -68,7 +68,7 @@ function GeneralInfo({info, callback}: any) {
                         type="text"
                         onChange={
                             (event: any) => {
-                                updateProperty('candidateName', event.nativeEvent.target.value)
+                                updateProperty('candidateName', event.nativeEvent.target.value);
                             }
                         }
                         value={info.candidateName}
@@ -78,7 +78,7 @@ function GeneralInfo({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         onChange={
                             (event: any) => {
-                                updateProperty('interviewMode', event.nativeEvent.target.value)
+                                updateProperty('interviewMode', event.nativeEvent.target.value);
                             }
                         }
                         value={info.interviewMode}
@@ -95,7 +95,7 @@ function GeneralInfo({info, callback}: any) {
                         type="date"
                         onChange={
                             (event: any) => {
-                                updateProperty('interviewDate', event.nativeEvent.target.value)
+                                updateProperty('interviewDate', event.nativeEvent.target.value);
                             }
                         }
                         value={info.interviewDate}

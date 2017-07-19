@@ -1,12 +1,18 @@
 import * as React from 'react';
-import './App.css';
+import { Route } from 'react-router-dom';
+
+import Form from '../../containers/form.container';
+import FormsList from '../../containers/forms-list.container';
 import HeaderAndMenu from '../../components/header-and-menu/header-and-menu.component';
 
-export default function App({ children }: any) {
+import './App.css';
+
+export default function App() {
     return (
         <div>
             <HeaderAndMenu />
-            {children}
+            <Route exact={true} path="/" component={FormsList}/>
+            <Route path="/new-form" component={Form}/>
         </div>
-    )
+    );
 }

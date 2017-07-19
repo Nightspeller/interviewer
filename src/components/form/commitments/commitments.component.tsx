@@ -20,8 +20,8 @@ function Commitments({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         type="text"
                         onChange={
-                            (event: any) => {
-                                updateProperty('location', event.nativeEvent.target.value)
+                            (event: React.FormEvent<HTMLInputElement>) => {
+                                updateProperty('location', event.currentTarget.value);
                             }
                         }
                         value={info.location}
@@ -31,8 +31,8 @@ function Commitments({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         type="text"
                         onChange={
-                            (event: any) => {
-                                updateProperty('workTime', event.nativeEvent.target.value)
+                            (event: React.FormEvent<HTMLInputElement>) => {
+                                updateProperty('workTime', event.currentTarget.value);
                             }
                         }
                         value={info.workTime}
@@ -42,8 +42,8 @@ function Commitments({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         type="text"
                         onChange={
-                            (event: any) => {
-                                updateProperty('projects', event.nativeEvent.target.value)
+                            (event: React.FormEvent<HTMLInputElement>) => {
+                                updateProperty('projects', event.currentTarget.value);
                             }
                         }
                         value={info.projects}
@@ -58,8 +58,8 @@ function Commitments({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         type="text"
                         onChange={
-                            (event: any) => {
-                                updateProperty('role', event.nativeEvent.target.value)
+                            (event: React.FormEvent<HTMLInputElement>) => {
+                                updateProperty('role', event.currentTarget.value);
                             }
                         }
                         value={info.role}
@@ -69,8 +69,8 @@ function Commitments({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         type="text"
                         onChange={
-                            (event: any) => {
-                                updateProperty('domain', event.nativeEvent.target.value)
+                            (event: React.FormEvent<HTMLInputElement>) => {
+                                updateProperty('domain', event.currentTarget.value);
                             }
                         }
                         value={info.domain}
@@ -80,8 +80,8 @@ function Commitments({info, callback}: any) {
                         className="s-col-12 s-col-md-9"
                         type="text"
                         onChange={
-                            (event: any) => {
-                                updateProperty('skill', event.nativeEvent.target.value)
+                            (event: React.FormEvent<HTMLInputElement>) => {
+                                updateProperty('skill', event.currentTarget.value);
                             }
                         }
                         value={info.skill}
