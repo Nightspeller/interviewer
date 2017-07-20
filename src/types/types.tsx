@@ -3,11 +3,13 @@ import { RouterState } from 'react-router-redux';
 export interface IStoreState {
     formState: IFormState;
     formsListState: IFormsListState;
-    routing: RouterState;
+    router: RouterState;
 }
 
 export interface IFormState {
     form: IForm;
+    _rev?: string;
+    _id?: string;
 }
 
 export interface IForm {

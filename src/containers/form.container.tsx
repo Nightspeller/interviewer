@@ -6,8 +6,8 @@ import { IFormState, IStoreState } from '../types/types';
 import { Dispatch } from 'react-redux';
 import { Action } from 'redux-actions';
 
-const mapStateToProps = ({formState}: IStoreState) => {
-    return {form: formState.form};
+const mapStateToProps = ({formState, router}: IStoreState) => {
+    return {formState, router};
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<Action<any>>) => {
@@ -15,8 +15,9 @@ const mapDispatchToProps = (dispatch: Dispatch<Action<any>>) => {
         updateFormPart: (part: {[key: string]: string}, value: string | boolean | Date) =>
             dispatch(actions.updateFormPart(part, value)),
         submitForm: (data: IFormState) => dispatch(actions.submitForm(data)),
-        prepopulateForm: (form: any) => dispatch(actions.prepopulateForm(form))
-    }
+        prepopulateForm: (form: any) => dispatch(actions.prepopulateForm(form)),
+        updateForm: (form: any, _id: string, _rev: string) => dispatch(actions.updateForm(form, _id, _rev)),
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(From);

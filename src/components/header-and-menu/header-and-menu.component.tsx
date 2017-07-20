@@ -12,7 +12,7 @@ export default function HeaderAndMenu() {
             <input type="checkbox" id="drawer-checkbox"/>
             <nav className="drawer persistent">
                 <label htmlFor="drawer-checkbox" className="close"/>
-                <Link to="/new-form">New Form</Link>
+                <Link to="/form">New Form</Link>
                 <Link to="/">Browse forms</Link>
             </nav>
         </div>

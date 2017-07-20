@@ -46,8 +46,14 @@ const initialState = {
 
 export function formReducer(state: IFormState = initialState, action: Action<any>): IFormState {
     switch (action.type) {
-        case PREPOPULATE_FORM:
-            return {...state, form: action.payload};
+        case '@@router/LOCATION_CHANGE':
+            if (action.payload.pathname === '/form') {
+                return {...initialState};
+            } else {
+                return state;
+            }
+        case PREPOPULATE_FORM + '_SUCCEEDED':
+            return {...state, form: action.payload.form, _id: action.payload._id, _rev: action.payload._rev};
         case UPDATE_FORM_PART:
             let updatedForm = {...state.form};
             updatedForm[action.payload.part] = action.payload.value;

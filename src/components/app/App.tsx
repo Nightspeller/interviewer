@@ -12,7 +12,7 @@ export default function App() {
         <div>
             <HeaderAndMenu />
             <Route exact={true} path="/" component={FormsList}/>
-            <Route path="/new-form" component={Form}/>
+            <Route path="/form" component={Form}/>
         </div>
     );
 }

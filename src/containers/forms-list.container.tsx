@@ -3,7 +3,7 @@ import * as actions from '../redux/actions/actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({formsListState}: any) => {
-    return {formsList: formsListState}
+    return {formsList: formsListState};
 };
 
 const mapDispatchToProps = (dispatch: any) => {

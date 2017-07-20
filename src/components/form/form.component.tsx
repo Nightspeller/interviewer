@@ -8,25 +8,39 @@ import OverallEvaluation from './overall-evaluation/overall-evaluation.component
 import Grades from './grades/grades.component';
 import Commitments from './commitments/commitments.component';
 import SelectionAndSubmission from './selection-and-submission/selection-and-submission.component';
-import { IForm } from '../../types/types';
+import { IFormState } from '../../types/types';
+import { RouterState } from 'react-router-redux';
 
 export interface IFormComponentProps {
-    form: IForm;
+    formState: IFormState;
+    router: RouterState;
     updateFormPart: any;
     submitForm: any;
     prepopulateForm: any;
+    updateForm: any;
 }
 
 class From extends React.Component<IFormComponentProps , object> {
+
     componentWillMount() {
-        const {prepopulateForm} = this.props;
-        if (localStorage.getItem('form')) {
-            prepopulateForm(JSON.parse(localStorage.getItem('form') || '{}'));
+        const {prepopulateForm, router} = this.props;
+        if (router.location && router.location.pathname.split('/')[2]) {
+            prepopulateForm(router.location.pathname.split('/')[2]);
+        }
+    }
+
+    submitClicked() {
+        const {router, formState, submitForm, updateForm} = this.props;
+        if (router.location && router.location.pathname.split('/')[2]) {
+            updateForm(formState.form, formState._id, formState._rev);
+        } else {
+            submitForm({form: formState.form});
         }
     }
 
     render() {
-        const {form, updateFormPart, submitForm} = this.props;
+        const {formState, updateFormPart} = this.props;
+        let form = formState.form;
         return (
             <form className="form">
                 <div className="s-grid">
@@ -84,7 +98,7 @@ class From extends React.Component<IFormComponentProps , object> {
                         <SelectionAndSubmission
                             info={form.selection}
                             callback={(selection: any) => updateFormPart('selection', selection)}
-                            submitForm={() => submitForm({form})}
+                            submitForm={() => this.submitClicked()}
                         />
                     </div>
                 </div>

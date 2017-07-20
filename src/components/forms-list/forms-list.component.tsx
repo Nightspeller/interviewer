@@ -1,11 +1,13 @@
 import * as React from 'react';
 import './forms-list.component.css';
 import { IFormsListState, IDbEntry } from '../../types/types';
+import { Link } from 'react-router-dom';
 
 export interface IFormsListProps {
     formsList: IFormsListState;
     loadForms: any;
     deleteForm: any;
+    editForm: any;
 }
 
 class FormsList extends React.Component<IFormsListProps, object> {
@@ -23,7 +25,9 @@ class FormsList extends React.Component<IFormsListProps, object> {
                                 {dbEntry.form.generalInfo.candidateName},
                                 interviewed by {dbEntry.form.generalInfo.interviewerName} on
                                 &nbsp;{dbEntry.form.generalInfo.interviewDate}
-                                <button>Edit</button>
+                                <Link to={`/form/${dbEntry._id}`} className="button">
+                                    View / Edit
+                                </Link>
                                 <a
                                     className="button"
                                     href={`http://gdcsandbox.mindtree.com:8015/api/interview/get-pdf/${dbEntry._id}`}

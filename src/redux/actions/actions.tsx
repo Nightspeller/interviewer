@@ -5,9 +5,9 @@ export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const PREPOPULATE_FORM = 'PREPOPULATE_FORM';
 export const LOAD_FORMS = 'LOAD_FORMS';
 export const DELETE_FORM = 'DELETE_FORM';
+export const UPDATE_FORM = 'UPDATE_FORM';
 
-
-import { IFormState } from '../../types/types';
+import { IForm, IFormState } from '../../types/types';
 
 export function updateFormPart(part: any, value: string | boolean | Date) {
     return {
@@ -36,7 +36,7 @@ export const loadForms = createActionThunk(
     () => {
         return new Promise((resolve, reject) => {
             fetch('http://gdcsandbox.mindtree.com:8015/api/interview')
-                .then(data => data.json().then( data => resolve({forms: data})));
+                .then(data => data.json().then( jsonData => resolve({forms: jsonData})));
         });
     }
 );
@@ -51,9 +51,26 @@ export const deleteForm = createActionThunk(
     }
 );
 
-export function prepopulateForm(form: any) {
-    return {
-        type: PREPOPULATE_FORM,
-        payload: form
-    };
-}
+export const updateForm = createActionThunk(
+    UPDATE_FORM,
+    (form: IForm, formId: string, formRev: string) => {
+        return new Promise((resolve, reject) => {
+            let myHeaders = new Headers({'Content-Type': 'application/json'});
+            fetch(`http://gdcsandbox.mindtree.com:8015/api/interview/${formId}/${formRev}`, {
+                method: 'PUT',
+                body: JSON.stringify({form: form}),
+                headers: myHeaders
+            }).then((data) => resolve(data));
+        });
+    }
+);
+
+export const prepopulateForm = createActionThunk(
+    PREPOPULATE_FORM,
+    (formId: string) => {
+        return new Promise((resolve, reject) => {
+            fetch(`http://gdcsandbox.mindtree.com:8015/api/interview/${formId}`)
+                .then(data => data.json().then( jsonData => resolve(jsonData[0])));
+        });
+    }
+);
