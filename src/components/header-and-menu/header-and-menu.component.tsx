@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function HeaderAndMenu() {
     return (
-        <div>
+        <div className="hide_from_print">
             <header>
                 <label htmlFor="drawer-checkbox" className="button drawer-toggle persistent"/>
                 <label htmlFor="drawer-checkbox" className="element-center button">Interviewer for Mindtree</label>

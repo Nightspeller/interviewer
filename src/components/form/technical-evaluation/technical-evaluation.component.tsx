@@ -64,10 +64,10 @@ function TechnicalEvaliation({info, callback}: any) {
                 ]
             )}
 
-            <div className="s-col-6 s-content-center">
+            <div className="s-col-6 s-content-center hide_from_print">
                 <button onClick={addSkill}>Add another skill evaluation</button>
             </div>
-            <div className="s-col-6 s-content-center">
+            <div className="s-col-6 s-content-center hide_from_print">
                 <button onClick={deleteSkill}>Delete last skill</button>
             </div>
         </div>

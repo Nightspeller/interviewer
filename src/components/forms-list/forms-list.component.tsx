@@ -15,25 +15,32 @@ class FormsList extends React.Component<IFormsListProps, object> {
         this.props.loadForms();
     }
 
+    getPDF() {
+
+    }
+
     render() {
         return (
             <div>
                 <ul>
                     {this.props.formsList.forms.map(
                         (dbEntry: IDbEntry) =>
-                            <li key={dbEntry._id}>
+                            <li
+                                key={dbEntry._id}
+                                className={dbEntry.form.selection.selected ? 'selected' : 'not_aligned'}
+                            >
                                 {dbEntry.form.generalInfo.candidateName},
                                 interviewed by {dbEntry.form.generalInfo.interviewerName} on
                                 &nbsp;{dbEntry.form.generalInfo.interviewDate}
                                 <Link to={`/form/${dbEntry._id}`} className="button">
                                     View / Edit
                                 </Link>
-                                <a
+                                {/*<a
                                     className="button"
                                     href={`http://gdcsandbox.mindtree.com:8015/api/interview/get-pdf/${dbEntry._id}`}
                                 >
                                     Get PDF
-                                </a>
+                                </a>*/}
                                 <button onClick={() => this.props.deleteForm(dbEntry._id, dbEntry._rev)}>Delete</button>
                             </li>
                     )}

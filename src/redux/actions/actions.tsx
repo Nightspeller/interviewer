@@ -19,14 +19,16 @@ export function updateFormPart(part: any, value: string | boolean | Date) {
 export const submitForm = createActionThunk(
     SUBMIT_FORM,
     (form: IFormState) => {
-        localStorage.setItem('form', JSON.stringify(form.form));
+        localStorage.setItem(
+            `${form.form.generalInfo.candidateName}_${form.form.generalInfo.interviewDate}`,
+            JSON.stringify(form.form));
         return new Promise((resolve, reject) => {
             let myHeaders = new Headers({'Content-Type': 'application/json'});
             fetch('http://gdcsandbox.mindtree.com:8015/api/interview', {
                 method: 'POST',
                 body: JSON.stringify(form),
                 headers: myHeaders
-            }).then((data) => resolve(data));
+            }).then((data) => resolve(data), () => resolve(form));
         });
     }
 );
@@ -36,17 +38,34 @@ export const loadForms = createActionThunk(
     () => {
         return new Promise((resolve, reject) => {
             fetch('http://gdcsandbox.mindtree.com:8015/api/interview')
-                .then(data => data.json().then( jsonData => resolve({forms: jsonData})));
+                .then(
+                    data => data.json(),
+                    () => Object
+                        .values(localStorage)
+                        .map((textForm: string) => JSON.parse(textForm))
+                        .map(form => ({
+                            _id: `${form.generalInfo.candidateName}_${form.generalInfo.interviewDate}`,
+                            _rev: form.generalInfo.interviewDate,
+                            form: form
+                        }))
+                )
+                .then(jsonData => {
+                    resolve({forms: jsonData});
+                });
         });
-    }
-);
+    })
+;
 
 export const deleteForm = createActionThunk(
     DELETE_FORM,
     (formId: string, formRev: string) => {
+        localStorage.removeItem(formId);
         return new Promise((resolve, reject) => {
             fetch(`http://gdcsandbox.mindtree.com:8015/api/interview/${formId}/${formRev}`, {method: 'DELETE'})
-                .then(() => resolve(formId));
+                .then(
+                    () => resolve(formId),
+                    () => resolve(formId)
+                );
         });
     }
 );
@@ -60,7 +79,12 @@ export const updateForm = createActionThunk(
                 method: 'PUT',
                 body: JSON.stringify({form: form}),
                 headers: myHeaders
-            }).then((data) => resolve(data));
+            }).then(
+                (data) => resolve(data),
+                () => {
+                    localStorage.setItem(formId, JSON.stringify(form));
+                    resolve('hi');
+                });
         });
     }
 );
@@ -70,7 +94,16 @@ export const prepopulateForm = createActionThunk(
     (formId: string) => {
         return new Promise((resolve, reject) => {
             fetch(`http://gdcsandbox.mindtree.com:8015/api/interview/${formId}`)
-                .then(data => data.json().then( jsonData => resolve(jsonData[0])));
+                .then(
+                    data => data.json().then(jsonData => resolve(jsonData[0])),
+                    () => {
+                        let form = JSON.parse(localStorage.getItem(formId) || '');
+                        resolve({
+                            _id: `${form.generalInfo.candidateName}_${form.generalInfo.interviewDate}`,
+                            _rev: form.generalInfo.interviewDate,
+                            form: form
+                        });
+                    });
         });
     }
 );

@@ -3,7 +3,7 @@ import './interview-guidelines.component.css';
 
 function InterviewGuidelines() {
     return (
-        <div className="interview-guidelines">
+        <div className="interview-guidelines hide_from_print">
             <label htmlFor="modal-toggle" className="modal-link">Interview Guidelines</label>
             <input id="modal-toggle" type="checkbox"/>
             <div className="modal">

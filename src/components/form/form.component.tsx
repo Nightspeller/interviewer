@@ -20,7 +20,7 @@ export interface IFormComponentProps {
     updateForm: any;
 }
 
-class From extends React.Component<IFormComponentProps , object> {
+class From extends React.Component<IFormComponentProps, object> {
 
     componentWillMount() {
         const {prepopulateForm, router} = this.props;
@@ -29,13 +29,19 @@ class From extends React.Component<IFormComponentProps , object> {
         }
     }
 
-    submitClicked() {
-        const {router, formState, submitForm, updateForm} = this.props;
-        if (router.location && router.location.pathname.split('/')[2]) {
+    submitClicked(mode: string) {
+        const {formState, submitForm, updateForm} = this.props;
+        if (mode === 'update') {
             updateForm(formState.form, formState._id, formState._rev);
         } else {
             submitForm({form: formState.form});
         }
+    }
+
+    printRequested() {
+        const {formState} = this.props;
+        document.title = `${formState.form.generalInfo.candidateName} - Interview feedback form`;
+        window.print();
     }
 
     render() {
@@ -98,7 +104,8 @@ class From extends React.Component<IFormComponentProps , object> {
                         <SelectionAndSubmission
                             info={form.selection}
                             callback={(selection: any) => updateFormPart('selection', selection)}
-                            submitForm={() => this.submitClicked()}
+                            submitForm={(mode: string) => this.submitClicked(mode)}
+                            printForm={() => this.printRequested()}
                         />
                     </div>
                 </div>

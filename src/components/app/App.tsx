@@ -10,7 +10,7 @@ import './App.css';
 export default function App() {
     return (
         <div>
-            <HeaderAndMenu />
+            <HeaderAndMenu/>
             <Route exact={true} path="/" component={FormsList}/>
             <Route path="/form" component={Form}/>
         </div>
